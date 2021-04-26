@@ -1,7 +1,7 @@
 version: 1.0.0+{build}
 
 image:
-  - Visual Studio 2017
+  - Visual Studio 2019
   - Ubuntu
 
 configuration: Release
@@ -13,7 +13,7 @@ environment:
 
   VCPKG_PATH: "c:\\tools\\vcpkg"
   NINJA_URL_WIN: "https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-win.zip"
-  MSVC_HOME: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community"
+  MSVC_HOME: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community"
 
   DOCKER_LOGIN: infactum
   DOCKER_PASSWORD:
