@@ -35,7 +35,7 @@ init:
         $env:APPVEYOR_CACHE_SKIP_RESTORE = "true"
         $env:APPVEYOR_CACHE_SKIP_SAVE = "true"
       }
-  - ps: |
+  - cmd: |
       ninja --version
   - ps: |      
       echo. >> "%VCPKG_PATH%\triplets\%TARGET_PLATFORM%-windows-static.cmake"
