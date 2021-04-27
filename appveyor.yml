@@ -35,13 +35,13 @@ init:
         $env:APPVEYOR_CACHE_SKIP_RESTORE = "true"
         $env:APPVEYOR_CACHE_SKIP_SAVE = "true"
       }
-  - cmd: |      
+  - ps: |      
       appveyor DownloadFile %NINJA_URL_WIN% -FileName ninja.zip
       7z x ninja.zip -oC:\ninja > nul
       rm ninja.zip
       set PATH=C:\ninja;%PATH%
       ninja --version
-  - cmd: |      
+  - ps: |      
       echo. >> "%VCPKG_PATH%\triplets\%TARGET_PLATFORM%-windows-static.cmake"
       echo set(VCPKG_BUILD_TYPE release) >> "%VCPKG_PATH%\triplets\%TARGET_PLATFORM%-windows-static.cmake"
   - sh: |
@@ -49,7 +49,7 @@ init:
       docker pull $DOCKER_IMAGE
 
 install: 
-  - cmd: |      
+  - ps: |      
       vcpkg list      
       .\install_prereq.bat "%VCPKG_PATH%" %TARGET_PLATFORM%
   - sh: docker build . --cache-from $DOCKER_IMAGE -t $DOCKER_IMAGE:latest -f tools/docker/linux-builder/Dockerfile
@@ -58,7 +58,7 @@ cache:
     - '%VCPKG_PATH%\installed\ -> install_prereq.bat, ports'
 
 build_script: 
-  - cmd: |
+  - ps: |
       call "%MSVC_HOME%\VC\Auxiliary\Build\vcvarsall.bat" %TARGET_PLATFORM%
       mkdir build
       cd build
@@ -83,6 +83,6 @@ after_build:
       Push-AppveyorArtifact $artifact
 
 on_failure:
-  - cmd: |
+  - ps: |
       7z a logs.zip "%VCPKG_PATH%\buildtrees\**\*.log"
       appveyor PushArtifact logs.zip
