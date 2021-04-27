@@ -37,7 +37,7 @@ init:
       }
   - cmd: |
       ninja --version
-  - ps: |      
+  - cmd: |      
       echo. >> "%VCPKG_PATH%\triplets\%TARGET_PLATFORM%-windows-static.cmake"
       echo set(VCPKG_BUILD_TYPE release) >> "%VCPKG_PATH%\triplets\%TARGET_PLATFORM%-windows-static.cmake"
   - sh: |
