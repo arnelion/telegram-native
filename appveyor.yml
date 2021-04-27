@@ -35,8 +35,9 @@ init:
         $env:APPVEYOR_CACHE_SKIP_RESTORE = "true"
         $env:APPVEYOR_CACHE_SKIP_SAVE = "true"
       }
-  - ps: |      
+  - cmd: |
       appveyor DownloadFile %NINJA_URL_WIN% -FileName ninja.zip
+  - ps: |      
       7z x ninja.zip -oC:\ninja > nul
       rm ninja.zip
       set PATH=C:\ninja;%PATH%
