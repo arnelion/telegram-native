@@ -1,4 +1,4 @@
-@echo off
+@echo on
 
 set _VCPKG_PATH=%~1
 set _TARGET_PLATFORM=%~2
