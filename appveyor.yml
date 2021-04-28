@@ -47,7 +47,7 @@ cache:
     - '%VCPKG_PATH%\installed\ -> install_prereq.bat, ports'
 
 build_script: 
-  - ps: |
+  - cmd: |
       call "%MSVC_HOME%\VC\Auxiliary\Build\vcvarsall.bat" %TARGET_PLATFORM%
       mkdir build
       cd build
