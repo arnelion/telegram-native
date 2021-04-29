@@ -1,6 +1,6 @@
 include(vcpkg_common_functions)
 
-set(VERSION 1.7.0)
+set(VERSION 1.7.4)
 set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/tdlib-${VERSION})
 
 vcpkg_from_github(
